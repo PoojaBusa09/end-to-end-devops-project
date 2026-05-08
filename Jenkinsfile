@@ -20,13 +20,10 @@ pipeline {
 }
 
         stage('SonarQube Analysis') {
-            steps {
-                dir('app') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-
+    steps {
+        sh 'mvn sonar:sonar'
+    }
+}
         stage('Docker Build') {
             steps {
                 dir('app') {
