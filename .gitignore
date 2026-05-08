@@ -1,0 +1,10 @@
+.cache/
+.minikube/
+.kube/
+.sonarqube/
+.snap/
+*.log
+*.db
+*.tmp
+.git-credentials
+.gitconfig
