@@ -15,12 +15,12 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                dir('app') {
-                    sh 'mvn clean package'
-                }
-            }
+    steps {
+        dir('backend') {
+            sh 'mvn clean package'
         }
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
