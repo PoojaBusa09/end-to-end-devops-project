@@ -13,12 +13,9 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PoojaBusa09/end-to-end-devops-project.git'
             }
         }
-
         stage('Build') {
-    steps {
-        dir('backend') {
-            sh 'mvn clean package'
-        }
+            steps {
+             sh 'mvn clean package'
     }
 }
 
