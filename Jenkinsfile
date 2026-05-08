@@ -41,13 +41,11 @@ pipeline {
         }
     }
 }
-        stage('Docker Build') {
-            steps {
-                dir('app') {
-                    sh 'docker build -t java-app .'
-                }
-            }
-        }
+     stage('Docker Build') {
+    steps {
+        sh 'docker build -t java-app .'
+    }
+}
 
         stage('Kubernetes Deploy') {
             steps {
