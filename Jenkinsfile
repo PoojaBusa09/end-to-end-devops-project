@@ -5,6 +5,12 @@ pipeline {
     tools {
         maven 'Maven3'
     }
+    environment {
+    SONAR_PROJECT_KEY = "end-to-end-devops-project"
+    SONAR_PROJECT_NAME = "end-to-end-devops-project"
+    SONAR_HOST_URL = "http://192.168.0.50:9000"
+}
+
 
     stages {
 
@@ -19,9 +25,20 @@ pipeline {
     }
 }
 
-        stage('SonarQube Analysis') {
+       stage('SonarQube Analysis') {
     steps {
-        sh 'mvn sonar:sonar'
+        withSonarQubeEnv('SonarQube') {
+            withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+
+                sh """
+                mvn clean verify sonar:sonar \
+                -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                -Dsonar.projectName=${SONAR_PROJECT_NAME} \
+                -Dsonar.host.url=${SONAR_HOST_URL} \
+                -Dsonar.login=${SONAR_TOKEN}
+                """
+            }
+        }
     }
 }
         stage('Docker Build') {
