@@ -1,10 +1,32 @@
-.cache/
-.minikube/
-.kube/
-.sonarqube/
-.snap/
+# Maven / Java build files
+target/
+*.class
+*.jar
+
+# Logs / temp / DB
 *.log
 *.db
 *.tmp
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Kubernetes / local cluster tools
+.kube/
+.minikube/
+.sonarqube/
+.snap/
+
+# Cache
+.cache/
+
+# Security
 .git-credentials
-.gitconfig
+
+# Archives (optional but useful)
+*.zip
+*.tar
+*.tar.gz
+kubernetes/jenkins/
