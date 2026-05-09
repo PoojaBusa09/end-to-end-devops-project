@@ -30,3 +30,28 @@ target/
 *.tar
 *.tar.gz
 kubernetes/jenkins/
+
+# OS / system files
+.cache/
+.bash_history
+.Xauthority
+
+# Kubernetes / Minikube
+.kube/
+.minikube/
+
+# Docker
+.docker/
+
+# Maven
+.m2/
+
+# SonarQube
+sonarqube-*/
+
+# logs
+*.log
+
+# IDE
+.vscode/
+.idea/
