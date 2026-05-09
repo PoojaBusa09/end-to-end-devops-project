@@ -9,24 +9,18 @@
   <version>1.0</version>
 
   <properties>
-<<<<<<< HEAD
-=======
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
 
->>>>>>> f49eedf (Updated app, Docker, Kubernetes configs and cleaned repo structure)
+    <!-- Sonar properties -->
     <sonar.projectKey>java-backend-app</sonar.projectKey>
     <sonar.projectName>java-backend-app</sonar.projectName>
   </properties>
 
-<<<<<<< HEAD
   <dependencies>
+    <!-- Add dependencies here -->
   </dependencies>
 
-  <build>
-    <plugins>
-
-=======
   <build>
     <plugins>
 
@@ -41,7 +35,6 @@
         </configuration>
       </plugin>
 
->>>>>>> f49eedf (Updated app, Docker, Kubernetes configs and cleaned repo structure)
       <!-- SonarQube Plugin -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
