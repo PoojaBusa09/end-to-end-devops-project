@@ -49,7 +49,12 @@ pipeline {
 
         stage('Kubernetes Deploy') {
             steps {
-                sh 'kubectl apply -f kubernetes/'
+                 withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
+                    sh '''
+                        kubectl config current-context
+                        kubectl apply -f kubernetes/
+                    '''
+                }
             }
         }
     }
