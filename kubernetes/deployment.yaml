@@ -1,5 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: java-app-deployment
 
@@ -20,13 +21,15 @@ spec:
       - name: java-app
         image: java-app:latest
         imagePullPolicy: IfNotPresent
+
         ports:
-        - containerPort: 8080
+        - containerPort: 8888
 
         resources:
           requests:
-            cpu: "100m"
             memory: "128Mi"
+            cpu: "100m"
+
           limits:
-            cpu: "200m"
             memory: "256Mi"
+            cpu: "200m"
