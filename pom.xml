@@ -13,19 +13,25 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
 
-    <!-- Sonar properties -->
-    <sonar.projectKey>java-backend-app</sonar.projectKey>
-    <sonar.projectName>java-backend-app</sonar.projectName>
+    <!-- SonarQube properties -->
+    <sonar.projectKey>end-to-end-devops-project</sonar.projectKey>
+    <sonar.projectName>end-to-end-devops-project</sonar.projectName>
   </properties>
 
   <dependencies>
-    <!-- No external dependencies needed for your HttpServer app -->
+    <!-- Add JUnit (IMPORTANT for coverage) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.9.3</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
 
-      <!-- Java Compiler Plugin -->
+      <!-- Compiler Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -36,7 +42,7 @@
         </configuration>
       </plugin>
 
-      <!-- IMPORTANT: Make JAR executable -->
+      <!-- Make JAR executable -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -50,11 +56,41 @@
         </configuration>
       </plugin>
 
+      <!-- 🟢 JACoCo (FIX FOR 0% COVERAGE ISSUE) -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.11</version>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <!-- SonarQube Plugin -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>4.0.0.4121</version>
+      </plugin>
+
+      <!-- Surefire Plugin (for tests) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.2</version>
       </plugin>
 
     </plugins>
