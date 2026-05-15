@@ -1,16 +1,14 @@
 apiVersion: v1
 kind: Service
-
 metadata:
-  name: java-app-service
-
+  name: guestbook-ui
+  namespace: end-to-end-devops-project
 spec:
   type: NodePort
-
   selector:
-    app: java-app
-
+    app: guestbook-ui
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
       
